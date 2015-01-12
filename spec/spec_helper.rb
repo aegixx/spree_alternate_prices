@@ -30,8 +30,10 @@ require 'spree/testing_support/controller_requests'
 require 'spree/testing_support/factories'
 require 'spree/testing_support/url_helpers'
 
-# Requires factories defined in lib/spree_alternate_prices/factories.rb
-require 'spree_alternate_prices/factories'
+# Requires factories defined in spec/factories
+Dir["#{File.dirname(__FILE__)}/factories/**"].each do |f|
+  require File.expand_path(f)
+end
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
