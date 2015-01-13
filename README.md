@@ -1,7 +1,7 @@
 SpreeAlternatePrices
 ====================
 
-Introduction goes here.
+Adds alternate product prices that can be applied via Promotions.  Adds a category to the Price model that is ignored until specifically referenced.
 
 Installation
 ------------
@@ -17,6 +17,12 @@ Bundle your dependencies and run the installation generator:
 ```shell
 bundle
 bundle exec rails g spree_alternate_prices:install
+```
+
+Add Calculator to config/initializers/spree.rb configuration:
+
+```ruby
+Rails.application.config.spree.calculators.promotion_actions_create_item_adjustments << Spree::Calculator::AlternatePriceCalculator
 ```
 
 Testing
@@ -36,4 +42,4 @@ Simply add this require statement to your spec_helper:
 require 'spree_alternate_prices/factories'
 ```
 
-Copyright (c) 2015 [name of extension creator], released under the New BSD License
+Copyright (c) 2015 Kailos Genetics, Inc., released under the New BSD License
