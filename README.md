@@ -12,11 +12,21 @@ Add spree_alternate_prices to your Gemfile:
 gem 'spree_alternate_prices', github: 'aegixx/spree_alternate_prices', branch: '2-4-stable'
 ```
 
-Bundle your dependencies and run the installation generator:
+Bundle your dependencies:
 
 ```shell
 bundle
-bundle exec rails g spree_alternate_prices:install
+```
+
+This is built on top of spree_multi_currency, so run that installation generator first (if you haven't already):
+
+```shell
+bundle && bundle exec rails g spree_multi_currency:install
+```
+
+Now run this installation generator:
+```shell
+bundle && bundle exec rails g spree_alternate_prices:install
 ```
 
 Add Calculator to config/initializers/spree.rb configuration:
