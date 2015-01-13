@@ -9,7 +9,7 @@ Installation
 Add spree_alternate_prices to your Gemfile:
 
 ```ruby
-gem 'spree_alternate_prices'
+gem 'spree_alternate_prices', github: 'aegixx/spree_alternate_prices', branch: '2-4-stable'
 ```
 
 Bundle your dependencies and run the installation generator:
