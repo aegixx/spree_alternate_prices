@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.requirements << 'none'
 
   s.add_dependency 'spree_core', '~> 2.4.2'
-  s.add_dependency 'spree_multi_currency', '~> 2.2.0'
+  s.add_dependency 'spree_multi_currency', '>= 2.2.0'
 
   s.add_development_dependency 'capybara', '~> 2.4'
   s.add_development_dependency 'coffee-rails'
