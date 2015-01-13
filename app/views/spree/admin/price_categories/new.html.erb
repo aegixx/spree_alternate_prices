@@ -1,0 +1,18 @@
+<%= render :partial => 'spree/admin/shared/configuration_menu' %>
+
+<% content_for :page_title do %>
+  <%= Spree.t(:new_category) %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <li><%= link_to_with_icon 'arrow-left', Spree.t(:back_to_categories_list), admin_price_categories_path, :class => 'button' %></li>
+<% end %>
+
+<%= render :partial => 'spree/shared/error_messages', :locals => { :target => @object } %>
+
+<%= form_for [:admin, @object] do |f| %>
+  <fieldset class="no-border-top">
+    <%= render :partial => 'form', :locals => { :f => f } %>
+    <%= render :partial => 'spree/admin/shared/new_resource_links' %>
+  </fieldset>
+<% end %>

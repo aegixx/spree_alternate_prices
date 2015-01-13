@@ -13,7 +13,11 @@ describe Spree::PriceCategory do
 		end
 
 		it 'sanitizes name' do
-			expect(category.name).to eq(cat_name.parameterize.underscore)
+			expect(category.read_attribute(:name)).to eq(cat_name.parameterize.underscore)
+		end
+
+		it 'titleizes name' do
+			expect(category.name).to eq(cat_name.titleize)
 		end
 	end
 

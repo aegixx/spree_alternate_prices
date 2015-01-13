@@ -4,3 +4,8 @@
 en:
   spree:
     alternate_price_calculator: Alternate Pricing
+    price_categories: Price Categories
+    listing_price_categories: Listing Price Categories
+    new_category: New Category
+    category_name: Category Name
+    back_to_categories_list: Back to Categories List
