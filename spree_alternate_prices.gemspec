@@ -2,7 +2,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_alternate_prices'
-  s.version     = '2.4.2'
+  s.version     = '2.4.2.2'
   s.summary     = 'Spree Alternate Prices - Provides alternate variant prices (with multi-currency)'
   s.description = 'Provides multiple prices for variants based on category; custom calculator provided.'
   s.required_ruby_version = '>= 1.9.3'
