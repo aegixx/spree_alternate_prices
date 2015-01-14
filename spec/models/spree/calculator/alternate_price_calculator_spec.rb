@@ -3,11 +3,13 @@ require 'spec_helper'
 module Spree
 	class Calculator
 		describe AlternatePriceCalculator, :type => :model do
+			original_price = 100
+			alt_price = 25
 			let(:categories) { FactoryGirl.create_list(:category, 2) }
-			let(:line_item) { FactoryGirl.create(:line_item, price: 100) }
+			let(:line_item) { FactoryGirl.create(:line_item, price: original_price) }
 
 			before do
-				FactoryGirl.create :price, variant: line_item.variant, category: categories.first, amount: 25
+				FactoryGirl.create :price, variant: line_item.variant, category: categories.first, amount: alt_price
 			end
 
 			context 'when valid' do
@@ -15,7 +17,16 @@ module Spree
 					before { subject.preferred_category = categories.first.name }
 
 					it 'uses alternate pricing' do
-						expect(subject.compute(line_item)).to eq(25)
+						expect(subject.compute(line_item)).to eq(original_price - alt_price)
+					end
+
+					context 'when multiple' do
+						quantity = 2
+						before { line_item.update_attributes(quantity: quantity) }
+
+						it 'multiplies by quantity' do
+							expect(subject.compute(line_item)).to eq(quantity * (original_price - alt_price))
+						end
 					end
 				end
 
