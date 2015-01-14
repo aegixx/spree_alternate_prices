@@ -14,7 +14,7 @@ module Spree
 			if updated_price.new_record? # Non-committed price
 				preferred_fallback_to_default_pricing ? object.price : nil
 			else
-				updated_price.price
+				object.quantity * (object.price - updated_price.price)
 			end
 		end
 	end
