@@ -4,7 +4,7 @@ module Spree
 		preference :category, :price_category, :string
 
 		def self.description
-			Spree.t(:price_category_calculator_description)
+			Spree.t(:alternate_price_calculator)
 		end
 
 		def compute(object=nil)
